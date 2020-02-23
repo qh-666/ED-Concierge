@@ -2,6 +2,7 @@ package com.example.edconcierge;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,8 @@ public class NavigationFragment extends Fragment implements RecyclerViewAdapter.
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+
+        Log.d("NavigationFragment","Create");
         super.onCreate(savedInstanceState);
 
         // This callback will only be called when MyFragment is at least Started.

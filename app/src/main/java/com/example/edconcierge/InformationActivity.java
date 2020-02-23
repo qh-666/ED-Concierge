@@ -3,6 +3,7 @@ package com.example.edconcierge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,5 +28,16 @@ public class InformationActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.answer_activity_information))
                 .setText(getResources().getStringArray(R.array.answers_array)[mIndexQuestion]);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("InformationActivity","Start");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("InformationActivity","Stop");
     }
 }

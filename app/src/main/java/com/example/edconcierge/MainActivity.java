@@ -2,6 +2,7 @@ package com.example.edconcierge;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
@@ -43,5 +44,16 @@ public class MainActivity extends AppCompatActivity {
     private void updateIndexHospital() {
         Intent intent = getIntent();
         mIndexHospital = intent.getIntExtra("indexHospital", 0);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("MainActivity","Start");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("MainActivity","Stop");
     }
 }

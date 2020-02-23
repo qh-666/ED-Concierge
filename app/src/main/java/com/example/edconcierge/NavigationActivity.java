@@ -3,6 +3,7 @@ package com.example.edconcierge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -23,5 +24,17 @@ public class NavigationActivity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.question_activity_navigation))
                 .setText(getResources().getStringArray(R.array.destinations_array)[mIndexQuestion]);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("NavigationActivity","Start");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("NavigationActivity","Stop");
     }
 }
