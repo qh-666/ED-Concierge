@@ -17,6 +17,8 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.r0adkll.slidr.Slidr;
+
 public class NavigationFragment extends Fragment implements RecyclerViewAdapter.ItemClickListener {
 
     private int mIndexHospital;

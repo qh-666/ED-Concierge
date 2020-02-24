@@ -10,6 +10,15 @@
         android:name="com.example.edconcierge.NavigationFragment"
         android:label="@string/title_navigation"
         tools:layout="@layout/fragment_navigation">
+        <action
+            android:id="@+id/action"
+            app:destination="@id/navigation_information"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment

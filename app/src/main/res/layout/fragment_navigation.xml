@@ -29,6 +29,8 @@
         android:text="@string/where_can_i_find"
         android:textColor="#0069FF"
         android:textSize="24sp"
+        android:fontFamily="@font/lato_thin"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name_hospital_navigation" />

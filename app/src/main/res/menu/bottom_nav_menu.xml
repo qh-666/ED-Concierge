@@ -3,10 +3,11 @@
     <item
         android:id="@+id/navigation_navigation"
         android:icon="@drawable/navi_icon"
-        android:title="@string/title_navigation" />
+        android:title="@string/title_navigation"
+        />
 
     <item
         android:id="@+id/navigation_information"
         android:icon="@drawable/info_icon"
-        android:title="@string/title_information" />
+        android:title="@string/title_information"/>
 </menu>

@@ -9,8 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".NavigationActivity"></activity>
-        <activity android:name=".InformationActivity" />
+        <activity
+            android:name=".NavigationActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme">
+        </activity>
+        <activity
+            android:name=".InformationActivity"
+            android:theme="@style/AppTheme.SlidrActivityTheme">
+        </activity>
+
         <activity android:name=".MainActivity" />
         <activity android:name=".ChoosingHospitalActivity">
             <intent-filter>
