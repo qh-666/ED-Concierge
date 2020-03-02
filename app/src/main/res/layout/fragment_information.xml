@@ -19,18 +19,18 @@
 <!--        app:layout_constraintStart_toStartOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <TextView
-        android:id="@+id/name_hospital_information"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:background="#0069FF"
-        android:gravity="center"
-        android:textSize="24sp"
+<!--    <TextView-->
+<!--        android:id="@+id/name_hospital_information"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="72dp"-->
+<!--        android:background="#0069FF"-->
+<!--        android:gravity="center"-->
+<!--        android:textSize="24sp"-->
 
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--        android:textColor="@android:color/white"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/patient_information"
@@ -46,7 +46,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_hospital_information" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 

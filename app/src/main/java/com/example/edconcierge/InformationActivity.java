@@ -1,21 +1,23 @@
 package com.example.edconcierge;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.r0adkll.slidr.Slidr;
 
 public class InformationActivity extends AppCompatActivity {
 
-    private int mIndexHospital;
-    private int mIndexQuestion;
     ImageButton back;
+    private int mIndexQuestion;
+
+    private TextToSpeech mTextToSpeech;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,7 @@ public class InformationActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         Slidr.attach(this);
 
-        back=findViewById(R.id.Info_back);
+        back = findViewById(R.id.Info_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,22 +35,40 @@ public class InformationActivity extends AppCompatActivity {
             }
         });
 
-        mIndexHospital = getIntent().getIntExtra("indexHospital", 0);
         mIndexQuestion = getIntent().getIntExtra("indexQuestion", 0);
 
+
         ((TextView) findViewById(R.id.hospital_name_activity_information))
-                .setText(getResources().getStringArray(R.array.hospitals_array)[mIndexHospital]);
+                .setText(DataContainer.hospitalName);
 
         ((TextView) findViewById(R.id.question_activity_information))
-                .setText(getResources().getStringArray(R.array.questions_array)[mIndexQuestion]);
+                .setText(DataContainer.questionsInformation.get(mIndexQuestion));
 
         ((TextView) findViewById(R.id.answer_activity_information))
-                .setText(getResources().getStringArray(R.array.answers_array)[mIndexQuestion]);
+                .setText(DataContainer.answersInformation.get(mIndexQuestion));
+
+
+        if (mTextToSpeech == null) {
+            mTextToSpeech = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+                @Override
+                public void onInit(int status) {
+                    if (status == TextToSpeech.SUCCESS) {
+
+                    } else {
+
+                    }
+                }
+            });
+        }
+
+
+        Log.d("TAG", "onCreate: " + ((TextView) findViewById(R.id.answer_activity_information)).getText());
     }
+
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("InfoActivity","Start");
+        Log.d("InfoActivity", "Start");
     }
 
     @Override
@@ -56,28 +76,55 @@ public class InformationActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
+
     @Override
-    public void onBackPressed(){
+    public void onBackPressed() {
         finish();
     }
+
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
+        if(mTextToSpeech != null) {
+            mTextToSpeech.stop();
+            mTextToSpeech.shutdown();
+        }
         super.onDestroy();
-        Log.d("InfoActivity","Destroy");
+        Log.d("InfoActivity", "Destroy");
     }
+
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
-        Log.d("InfoActivity","Resume");
+        Log.d("InfoActivity", "Resume");
     }
+
     @Override
-    protected void onPause(){
+    protected void onPause() {
         super.onPause();
-        Log.d("InfoActivity","Pause");
+        Log.d("InfoActivity", "Pause");
     }
+
     @Override
     protected void onStop() {
         super.onStop();
-        Log.d("InfoActivity","Stop");
+        Log.d("InfoActivity", "Stop");
     }
+
+    public void textToSpeech(View view) {
+        mTextToSpeech.speak(DataContainer.answersInformation.get(mIndexQuestion), TextToSpeech.QUEUE_ADD, null);
+    }
+
+    public void increaseFontSize(View view) {
+        TextView textView = findViewById(R.id.answer_activity_information);
+        if (textView.getTextSize() < 95.0)
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textView.getTextSize() + 10);
+    }
+
+    public void decreaseFontSize(View view) {
+        TextView textView = findViewById(R.id.answer_activity_information);
+        if (textView.getTextSize() > 45.0)
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textView.getTextSize() - 10);
+    }
+
+
 }

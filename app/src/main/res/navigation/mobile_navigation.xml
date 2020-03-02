@@ -27,4 +27,10 @@
         android:label="@string/title_information"
         tools:layout="@layout/fragment_information" />
 
+    <fragment
+        android:id="@+id/navigation_message"
+        android:name="com.example.edconcierge.MessageFragment"
+        android:label="Message"
+        tools:layout="@layout/fragment_message" />
+
 </navigation>

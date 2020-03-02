@@ -14,7 +14,6 @@ import com.r0adkll.slidr.Slidr;
 
 public class NavigationActivity extends AppCompatActivity {
 
-    private int mIndexHospital;
     private int mIndexQuestion;
     ImageButton back;
 
@@ -33,14 +32,14 @@ public class NavigationActivity extends AppCompatActivity {
             }
         });
 
-        mIndexHospital = getIntent().getIntExtra("indexHospital", 0);
         mIndexQuestion = getIntent().getIntExtra("indexQuestion", 0);
 
         ((TextView) findViewById(R.id.hospital_name_activity_navigation))
-                .setText(getResources().getStringArray(R.array.hospitals_array)[mIndexHospital]);
+                .setText(DataContainer.hospitalName);
+
 
         ((TextView) findViewById(R.id.question_activity_navigation))
-                .setText(getResources().getStringArray(R.array.destinations_array)[mIndexQuestion]);
+                .setText(DataContainer.questionsNavigation.get(mIndexQuestion));
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.edconcierge;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,16 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private String[] mTextData;
-    private int[] mImgData;
+    //    private String[] mTextData;
+//    private int[] mImgData;
+    private List<String> mTextData;
+    private List<Bitmap> mImgData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // Data is passed into the constructor
-    public RecyclerViewAdapter(Context context, String[] textData, int[] imgData) {
+    public RecyclerViewAdapter(Context context, List<String> textData, List<Bitmap> imgData) {
         this.mInflater = LayoutInflater.from(context);
         this.mTextData = textData;
         this.mImgData = imgData;
@@ -38,16 +42,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     // Binds the data to the textview in each cell
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String text = mTextData[position];
-        int img = mImgData[position];
+        String text = mTextData.get(position);
+        Bitmap img = mImgData.get(position);
         holder.myTextView.setText(text);
-        holder.myImageView.setImageResource(img);
+        holder.myImageView.setImageBitmap(img);
     }
 
     // Total number of cells
     @Override
     public int getItemCount() {
-        return mTextData.length;
+        return mTextData.size();
     }
 
     // Stores and recycles views as they are scrolled off screen
@@ -70,7 +74,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     // Convenience method for getting data at click position
     public String getItem(int id) {
-        return mTextData[id];
+        return mTextData.get(id);
     }
 
     // allows clicks events to be caught

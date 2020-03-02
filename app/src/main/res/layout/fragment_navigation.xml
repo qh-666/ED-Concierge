@@ -6,18 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/name_hospital_navigation"
-        android:layout_width="0dp"
-        android:layout_height="72dp"
-        android:background="#0069FF"
-        android:gravity="center"
-        android:textSize="24sp"
+<!--    <TextView-->
+<!--        android:id="@+id/name_hospital_navigation"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="72dp"-->
+<!--        android:background="#0069FF"-->
+<!--        android:gravity="center"-->
+<!--        android:textSize="24sp"-->
 
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--        android:textColor="@android:color/white"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/where_can_i_find"
@@ -33,7 +33,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/name_hospital_navigation" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_navigation"
