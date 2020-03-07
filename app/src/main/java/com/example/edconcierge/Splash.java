@@ -23,6 +23,7 @@ public class Splash extends AppCompatActivity {
         Typeface face;
         face = Typeface.createFromAsset(getAssets(), "norwester.otf");
         ((TextView) findViewById(R.id.ed)).setTypeface(face);
+        Log.d("SplashActivity","SetFace");
 
 
         DataContainer.clear();
@@ -37,7 +38,7 @@ public class Splash extends AppCompatActivity {
                     messages.add((String) value);
                 }
             }
-            Log.d("Splash", "onCreate: " + messages);
+            Log.d("SplashActivity", "onCreate: " + messages);
             sharedPreferences.edit().putString("messages", new Gson().toJson(messages)).commit();
         }
 

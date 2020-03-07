@@ -26,6 +26,11 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        <activity
+            android:name="com.example.edconcierge.MessageActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
+        <!-- signleTop mode -->
         <activity android:name="com.example.edconcierge.Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,9 +40,11 @@
         </activity>
         <activity
             android:name="com.example.edconcierge.NavigationActivity"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
         <activity
             android:name="com.example.edconcierge.InformationActivity"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
         <activity android:name="com.example.edconcierge.MainActivity" />
         <activity android:name="com.example.edconcierge.ChoosingHospitalActivity" />

@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.strictmode.WebViewMethodCalledOnWrongThreadViolation;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,7 +30,8 @@ import java.util.List;
 public class MessageFragment extends Fragment {
 
     private View root;
-    private ArrayAdapter<String> mAdapter;
+    private MessageAdapter<String> mAdapter;
+    Switch aSwitch;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,12 +43,23 @@ public class MessageFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_message, container, false);
         ((TextView) root.findViewById(R.id.welcome_message)).setText("Hello, " + DataContainer.name);
+        aSwitch=root.findViewById(R.id.message_clearnotification);
+        aSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    Log.d("Message", String.valueOf(DataContainer.messages.size()));
+                    DataContainer.messages=new ArrayList<String>();
+                    Log.d("Message", String.valueOf(DataContainer.messages.size()));
+                }
+            }
+        });
         setListView();
         return root;
     }
 
     private void setListView() {
-        mAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, DataContainer.messages);
+        mAdapter = new MessageAdapter<String>(getContext(), R.layout.message_item, DataContainer.messages);
         ListView listView = (ListView) root.findViewById(R.id.messages_listView);
         listView.setAdapter(mAdapter);
     }

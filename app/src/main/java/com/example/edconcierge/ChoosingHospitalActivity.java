@@ -152,6 +152,7 @@ public class ChoosingHospitalActivity extends AppCompatActivity implements Adapt
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d("TAG", document.getId() + " => " + document.getData());
                                     if (document.get("name").equals(name) && document.get("hospital").equals(mHospitalName)) {
+                                        Log.d("TAG", "onComplete: 09");
 
                                         // Success
                                         nextHandlerHelper(false, name, id);

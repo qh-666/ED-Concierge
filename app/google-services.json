@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "942381853391-ig4oju7spj2ea33e7l6trpor790qn2gk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.edconcierge",
+            "certificate_hash": "7bbe7f90c7dcae255854ce366b6bfbeca395568f"
+          }
+        },
+        {
           "client_id": "942381853391-u8strlvnvvsdkm2qqi0tjlllavlg6oj1.apps.googleusercontent.com",
           "client_type": 3
         }

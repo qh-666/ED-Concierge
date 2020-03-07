@@ -73,91 +73,91 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int notification_action_background = 0x7f080098;
-        public static final int notification_bg = 0x7f080099;
-        public static final int notification_bg_low = 0x7f08009a;
-        public static final int notification_bg_low_normal = 0x7f08009b;
-        public static final int notification_bg_low_pressed = 0x7f08009c;
-        public static final int notification_bg_normal = 0x7f08009d;
-        public static final int notification_bg_normal_pressed = 0x7f08009e;
-        public static final int notification_icon_background = 0x7f08009f;
-        public static final int notification_template_icon_bg = 0x7f0800a0;
-        public static final int notification_template_icon_low_bg = 0x7f0800a1;
-        public static final int notification_tile_bg = 0x7f0800a2;
-        public static final int notify_panel_notification_icon_bg = 0x7f0800a3;
+        public static final int notification_action_background = 0x7f08009a;
+        public static final int notification_bg = 0x7f08009b;
+        public static final int notification_bg_low = 0x7f08009c;
+        public static final int notification_bg_low_normal = 0x7f08009d;
+        public static final int notification_bg_low_pressed = 0x7f08009e;
+        public static final int notification_bg_normal = 0x7f08009f;
+        public static final int notification_bg_normal_pressed = 0x7f0800a0;
+        public static final int notification_icon_background = 0x7f0800a1;
+        public static final int notification_template_icon_bg = 0x7f0800a2;
+        public static final int notification_template_icon_low_bg = 0x7f0800a3;
+        public static final int notification_tile_bg = 0x7f0800a4;
+        public static final int notify_panel_notification_icon_bg = 0x7f0800a5;
     }
     public static final class id {
         private id() {}
 
-        public static final int accessibility_action_clickable_span = 0x7f0a000a;
-        public static final int accessibility_custom_action_0 = 0x7f0a000b;
-        public static final int accessibility_custom_action_1 = 0x7f0a000c;
-        public static final int accessibility_custom_action_10 = 0x7f0a000d;
-        public static final int accessibility_custom_action_11 = 0x7f0a000e;
-        public static final int accessibility_custom_action_12 = 0x7f0a000f;
-        public static final int accessibility_custom_action_13 = 0x7f0a0010;
-        public static final int accessibility_custom_action_14 = 0x7f0a0011;
-        public static final int accessibility_custom_action_15 = 0x7f0a0012;
-        public static final int accessibility_custom_action_16 = 0x7f0a0013;
-        public static final int accessibility_custom_action_17 = 0x7f0a0014;
-        public static final int accessibility_custom_action_18 = 0x7f0a0015;
-        public static final int accessibility_custom_action_19 = 0x7f0a0016;
-        public static final int accessibility_custom_action_2 = 0x7f0a0017;
-        public static final int accessibility_custom_action_20 = 0x7f0a0018;
-        public static final int accessibility_custom_action_21 = 0x7f0a0019;
-        public static final int accessibility_custom_action_22 = 0x7f0a001a;
-        public static final int accessibility_custom_action_23 = 0x7f0a001b;
-        public static final int accessibility_custom_action_24 = 0x7f0a001c;
-        public static final int accessibility_custom_action_25 = 0x7f0a001d;
-        public static final int accessibility_custom_action_26 = 0x7f0a001e;
-        public static final int accessibility_custom_action_27 = 0x7f0a001f;
-        public static final int accessibility_custom_action_28 = 0x7f0a0020;
-        public static final int accessibility_custom_action_29 = 0x7f0a0021;
-        public static final int accessibility_custom_action_3 = 0x7f0a0022;
-        public static final int accessibility_custom_action_30 = 0x7f0a0023;
-        public static final int accessibility_custom_action_31 = 0x7f0a0024;
-        public static final int accessibility_custom_action_4 = 0x7f0a0025;
-        public static final int accessibility_custom_action_5 = 0x7f0a0026;
-        public static final int accessibility_custom_action_6 = 0x7f0a0027;
-        public static final int accessibility_custom_action_7 = 0x7f0a0028;
-        public static final int accessibility_custom_action_8 = 0x7f0a0029;
-        public static final int accessibility_custom_action_9 = 0x7f0a002a;
-        public static final int action_container = 0x7f0a0034;
-        public static final int action_divider = 0x7f0a0036;
-        public static final int action_image = 0x7f0a0037;
-        public static final int action_text = 0x7f0a003d;
-        public static final int actions = 0x7f0a003e;
-        public static final int async = 0x7f0a0047;
-        public static final int blocking = 0x7f0a004b;
-        public static final int chronometer = 0x7f0a0056;
-        public static final int dialog_button = 0x7f0a0069;
-        public static final int forever = 0x7f0a007b;
-        public static final int fragment_container_view_tag = 0x7f0a007c;
-        public static final int icon = 0x7f0a008b;
-        public static final int icon_group = 0x7f0a008c;
-        public static final int info = 0x7f0a0090;
-        public static final int italic = 0x7f0a0094;
-        public static final int line1 = 0x7f0a009a;
-        public static final int line3 = 0x7f0a009b;
-        public static final int normal = 0x7f0a00b2;
-        public static final int notification_background = 0x7f0a00b3;
-        public static final int notification_main_column = 0x7f0a00b4;
-        public static final int notification_main_column_container = 0x7f0a00b5;
-        public static final int right_icon = 0x7f0a00cb;
-        public static final int right_side = 0x7f0a00cc;
-        public static final int tag_accessibility_actions = 0x7f0a00fd;
-        public static final int tag_accessibility_clickable_spans = 0x7f0a00fe;
-        public static final int tag_accessibility_heading = 0x7f0a00ff;
-        public static final int tag_accessibility_pane_title = 0x7f0a0100;
-        public static final int tag_screen_reader_focusable = 0x7f0a0101;
-        public static final int tag_transition_group = 0x7f0a0102;
-        public static final int tag_unhandled_key_event_manager = 0x7f0a0103;
-        public static final int tag_unhandled_key_listeners = 0x7f0a0104;
-        public static final int text = 0x7f0a0105;
-        public static final int text2 = 0x7f0a0106;
-        public static final int time = 0x7f0a010e;
-        public static final int title = 0x7f0a010f;
-        public static final int visible_removing_fragment_view_tag = 0x7f0a0122;
+        public static final int accessibility_action_clickable_span = 0x7f0a000e;
+        public static final int accessibility_custom_action_0 = 0x7f0a000f;
+        public static final int accessibility_custom_action_1 = 0x7f0a0010;
+        public static final int accessibility_custom_action_10 = 0x7f0a0011;
+        public static final int accessibility_custom_action_11 = 0x7f0a0012;
+        public static final int accessibility_custom_action_12 = 0x7f0a0013;
+        public static final int accessibility_custom_action_13 = 0x7f0a0014;
+        public static final int accessibility_custom_action_14 = 0x7f0a0015;
+        public static final int accessibility_custom_action_15 = 0x7f0a0016;
+        public static final int accessibility_custom_action_16 = 0x7f0a0017;
+        public static final int accessibility_custom_action_17 = 0x7f0a0018;
+        public static final int accessibility_custom_action_18 = 0x7f0a0019;
+        public static final int accessibility_custom_action_19 = 0x7f0a001a;
+        public static final int accessibility_custom_action_2 = 0x7f0a001b;
+        public static final int accessibility_custom_action_20 = 0x7f0a001c;
+        public static final int accessibility_custom_action_21 = 0x7f0a001d;
+        public static final int accessibility_custom_action_22 = 0x7f0a001e;
+        public static final int accessibility_custom_action_23 = 0x7f0a001f;
+        public static final int accessibility_custom_action_24 = 0x7f0a0020;
+        public static final int accessibility_custom_action_25 = 0x7f0a0021;
+        public static final int accessibility_custom_action_26 = 0x7f0a0022;
+        public static final int accessibility_custom_action_27 = 0x7f0a0023;
+        public static final int accessibility_custom_action_28 = 0x7f0a0024;
+        public static final int accessibility_custom_action_29 = 0x7f0a0025;
+        public static final int accessibility_custom_action_3 = 0x7f0a0026;
+        public static final int accessibility_custom_action_30 = 0x7f0a0027;
+        public static final int accessibility_custom_action_31 = 0x7f0a0028;
+        public static final int accessibility_custom_action_4 = 0x7f0a0029;
+        public static final int accessibility_custom_action_5 = 0x7f0a002a;
+        public static final int accessibility_custom_action_6 = 0x7f0a002b;
+        public static final int accessibility_custom_action_7 = 0x7f0a002c;
+        public static final int accessibility_custom_action_8 = 0x7f0a002d;
+        public static final int accessibility_custom_action_9 = 0x7f0a002e;
+        public static final int action_container = 0x7f0a0038;
+        public static final int action_divider = 0x7f0a003a;
+        public static final int action_image = 0x7f0a003b;
+        public static final int action_text = 0x7f0a0041;
+        public static final int actions = 0x7f0a0042;
+        public static final int async = 0x7f0a004c;
+        public static final int blocking = 0x7f0a0050;
+        public static final int chronometer = 0x7f0a005b;
+        public static final int dialog_button = 0x7f0a006e;
+        public static final int forever = 0x7f0a0080;
+        public static final int fragment_container_view_tag = 0x7f0a0081;
+        public static final int icon = 0x7f0a0091;
+        public static final int icon_group = 0x7f0a0092;
+        public static final int info = 0x7f0a0096;
+        public static final int italic = 0x7f0a009a;
+        public static final int line1 = 0x7f0a00a0;
+        public static final int line3 = 0x7f0a00a1;
+        public static final int normal = 0x7f0a00bb;
+        public static final int notification_background = 0x7f0a00bc;
+        public static final int notification_main_column = 0x7f0a00bd;
+        public static final int notification_main_column_container = 0x7f0a00be;
+        public static final int right_icon = 0x7f0a00d5;
+        public static final int right_side = 0x7f0a00d6;
+        public static final int tag_accessibility_actions = 0x7f0a0107;
+        public static final int tag_accessibility_clickable_spans = 0x7f0a0108;
+        public static final int tag_accessibility_heading = 0x7f0a0109;
+        public static final int tag_accessibility_pane_title = 0x7f0a010a;
+        public static final int tag_screen_reader_focusable = 0x7f0a010b;
+        public static final int tag_transition_group = 0x7f0a010c;
+        public static final int tag_unhandled_key_event_manager = 0x7f0a010d;
+        public static final int tag_unhandled_key_listeners = 0x7f0a010e;
+        public static final int text = 0x7f0a010f;
+        public static final int text2 = 0x7f0a0110;
+        public static final int time = 0x7f0a0118;
+        public static final int title = 0x7f0a0119;
+        public static final int visible_removing_fragment_view_tag = 0x7f0a012c;
     }
     public static final class integer {
         private integer() {}
@@ -167,13 +167,13 @@ public final class R {
     public static final class layout {
         private layout() {}
 
-        public static final int custom_dialog = 0x7f0d0021;
-        public static final int notification_action = 0x7f0d0035;
-        public static final int notification_action_tombstone = 0x7f0d0036;
-        public static final int notification_template_custom_big = 0x7f0d003d;
-        public static final int notification_template_icon_group = 0x7f0d003e;
-        public static final int notification_template_part_chronometer = 0x7f0d0042;
-        public static final int notification_template_part_time = 0x7f0d0043;
+        public static final int custom_dialog = 0x7f0d0022;
+        public static final int notification_action = 0x7f0d0037;
+        public static final int notification_action_tombstone = 0x7f0d0038;
+        public static final int notification_template_custom_big = 0x7f0d003f;
+        public static final int notification_template_icon_group = 0x7f0d0040;
+        public static final int notification_template_part_chronometer = 0x7f0d0044;
+        public static final int notification_template_part_time = 0x7f0d0045;
     }
     public static final class string {
         private string() {}
@@ -183,13 +183,13 @@ public final class R {
     public static final class style {
         private style() {}
 
-        public static final int TextAppearance_Compat_Notification = 0x7f120118;
-        public static final int TextAppearance_Compat_Notification_Info = 0x7f120119;
-        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f12011b;
-        public static final int TextAppearance_Compat_Notification_Time = 0x7f12011e;
-        public static final int TextAppearance_Compat_Notification_Title = 0x7f120120;
-        public static final int Widget_Compat_NotificationActionContainer = 0x7f1201ca;
-        public static final int Widget_Compat_NotificationActionText = 0x7f1201cb;
+        public static final int TextAppearance_Compat_Notification = 0x7f120119;
+        public static final int TextAppearance_Compat_Notification_Info = 0x7f12011a;
+        public static final int TextAppearance_Compat_Notification_Line2 = 0x7f12011c;
+        public static final int TextAppearance_Compat_Notification_Time = 0x7f12011f;
+        public static final int TextAppearance_Compat_Notification_Title = 0x7f120121;
+        public static final int Widget_Compat_NotificationActionContainer = 0x7f1201cb;
+        public static final int Widget_Compat_NotificationActionText = 0x7f1201cc;
     }
     public static final class styleable {
         private styleable() {}

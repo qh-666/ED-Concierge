@@ -1130,8 +1130,10 @@ drawable destination_09
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrowback
+drawable ic_exit
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable ic_message
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
@@ -1171,6 +1173,10 @@ id FUNCTION
 id Info_Toobar
 id Info_back
 id META
+id Message_Text
+id Message_Toobar
+id Message_back
+id Message_tts_button
 id Nav_Toolbar
 id Navi_back
 id SHIFT
@@ -1235,6 +1241,7 @@ id adjust_width
 id alertTitle
 id all
 id always
+id answer_activity_Message
 id answer_activity_information
 id async
 id auto
@@ -1302,6 +1309,7 @@ id guideline2
 id header_main
 id home
 id homeAsUp
+id hospital_name_activity_Message
 id hospital_name_activity_information
 id hospital_name_activity_navigation
 id icon
@@ -1325,7 +1333,10 @@ id listMode
 id list_item
 id masked
 id media_actions
+id menu_font_larger
+id menu_font_small
 id message
+id message_clearnotification
 id messages_listView
 id middle
 id mini
@@ -1362,6 +1373,7 @@ id percent
 id pin
 id progress_circular
 id progress_horizontal
+id question_activity_Message
 id question_activity_information
 id question_activity_navigation
 id radio
@@ -1522,6 +1534,7 @@ layout abc_tooltip
 layout activity_choosing_hospital
 layout activity_information
 layout activity_main
+layout activity_message
 layout activity_navigation
 layout activity_splash
 layout custom_dialog
@@ -1542,6 +1555,7 @@ layout design_text_input_password_icon
 layout fragment_information
 layout fragment_message
 layout fragment_navigation
+layout message_item
 layout mtrl_layout_snackbar
 layout mtrl_layout_snackbar_include
 layout notification_action
@@ -1565,6 +1579,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu bottom_nav_menu
+menu font_size
 mipmap ic_launcher
 mipmap ic_launcher_round
 navigation mobile_navigation
@@ -1879,6 +1894,7 @@ style RtlOverlay_Widget_AppCompat_Search_DropDown_Text
 style RtlOverlay_Widget_AppCompat_SearchView_MagIcon
 style RtlUnderlay_Widget_AppCompat_ActionButton
 style RtlUnderlay_Widget_AppCompat_ActionButton_Overflow
+style Switch
 style TextAppearance_AppCompat
 style TextAppearance_AppCompat_Body1
 style TextAppearance_AppCompat_Body2

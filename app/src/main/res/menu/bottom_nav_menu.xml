@@ -12,6 +12,6 @@
 
     <item
         android:id="@+id/navigation_message"
-        android:icon="@drawable/info_icon"
+        android:icon="@drawable/ic_message"
         android:title="Message" />
 </menu>
