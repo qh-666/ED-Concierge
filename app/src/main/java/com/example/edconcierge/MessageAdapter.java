@@ -51,5 +51,9 @@ public class MessageAdapter<String> extends ArrayAdapter {
         return convertView;
     }
 
-
+    @Override
+    public void notifyDataSetChanged() {
+        Log.d("Message","notifyDataSetChanged()");
+        super.notifyDataSetChanged();
+    }
 }

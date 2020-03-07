@@ -32,6 +32,7 @@ public class MessageActivity extends AppCompatActivity {
     Button fontsize;
     TextView textView;
     private TextToSpeech mTextToSpeech;
+    float TextSize;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,7 @@ public class MessageActivity extends AppCompatActivity {
         textView.setText("abc");
         System.out.println("123");
         textView.setText(DataContainer.messages.get(messageindex));
+        TextSize=textView.getTextSize();
 
         back = findViewById(R.id.Message_back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -125,14 +127,22 @@ public class MessageActivity extends AppCompatActivity {
         mTextToSpeech.speak(DataContainer.messages.get(messageindex), TextToSpeech.QUEUE_ADD, null);
     }
 
+    int count=0;
+    boolean asending=true;
     public void increaseFontSize(View view) {
-        if (textView.getTextSize() < 95.0)
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textView.getTextSize() + 10);
-    }
-
-    public void decreaseFontSize(View view) {
-        if (textView.getTextSize() > 45.0)
-            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textView.getTextSize() - 10);
+        if(count==0){
+            asending=true;
+        }
+        if(count==4){
+            asending=false;
+        }
+        if(asending){
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,  textView.getTextSize() + 20);
+            count++;
+        }else{
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,  textView.getTextSize() - 20);
+            count--;
+        }
     }
 
 }

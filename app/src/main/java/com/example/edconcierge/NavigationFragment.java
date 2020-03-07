@@ -55,12 +55,9 @@ public class NavigationFragment extends Fragment implements RecyclerViewAdapter.
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getContext(), 3);
         recyclerView.setLayoutManager(layoutManager);
-        Log.d("RecyclerView","3");
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(getContext(), DataContainer.questionsNavigation, DataContainer.iconsNavigation);
         adapter.setClickListener(this);
-        Log.d("RecyclerView","4");
         recyclerView.setAdapter(adapter);
-        Log.d("RecyclerView","5");
     }
 
     @Override

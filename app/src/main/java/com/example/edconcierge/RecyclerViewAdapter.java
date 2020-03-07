@@ -30,7 +30,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.mInflater = LayoutInflater.from(context);
         this.mTextData = textData;
         this.mImgData = imgData;
-        Log.d("RecyclerView","1");
     }
 
     // Inflates the cell layout from xml when needed

@@ -50,7 +50,9 @@ public class MessageFragment extends Fragment {
                 if(isChecked){
                     Log.d("Message", String.valueOf(DataContainer.messages.size()));
                     DataContainer.messages=new ArrayList<String>();
+                    mAdapter.messageList.clear();
                     Log.d("Message", String.valueOf(DataContainer.messages.size()));
+                    mAdapter.notifyDataSetChanged();
                 }
             }
         });
