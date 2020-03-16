@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MessageActivity"
-            android:theme="@style/AppTheme.SlidrActivityTheme"
-            android:launchMode="singleTop"/>
-        <!--signleTop mode-->
+        <activity
+            android:name=".MessageActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.SlidrActivityTheme" /> <!-- signleTop mode -->
         <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,13 +22,12 @@
         </activity>
         <activity
             android:name=".NavigationActivity"
-            android:theme="@style/AppTheme.SlidrActivityTheme"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
         <activity
             android:name=".InformationActivity"
-            android:theme="@style/AppTheme.SlidrActivityTheme"
-            android:launchMode="singleTop"/>
-
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.SlidrActivityTheme" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ChoosingHospitalActivity" />
 

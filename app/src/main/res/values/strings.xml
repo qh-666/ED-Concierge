@@ -49,4 +49,8 @@
     <string name="patient_information">Patient Information</string>
     <string name="where_can_i_find">Where can I find...</string>
     <string name="continue_">Continue</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

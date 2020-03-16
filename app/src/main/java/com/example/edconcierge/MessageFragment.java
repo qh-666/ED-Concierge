@@ -89,4 +89,5 @@ public class MessageFragment extends Fragment {
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(receiver);
         super.onDestroy();
     }
+
 }

@@ -56,4 +56,6 @@ public class MessageAdapter<String> extends ArrayAdapter {
         Log.d("Message","notifyDataSetChanged()");
         super.notifyDataSetChanged();
     }
+
+
 }
