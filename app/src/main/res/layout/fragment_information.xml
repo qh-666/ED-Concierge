@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_information"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -64,6 +65,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/patient_information" />
+
+    <SearchView
+        android:id="@+id/info_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="2dp"
+        android:baselineAligned="false"
+        android:layoutDirection="rtl"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerview_information"
+        app:layout_constraintEnd_toEndOf="@+id/patient_information"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/patient_information" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
