@@ -92,7 +92,7 @@ public class AStar {
         System.out.println(current.toString());
         while(!current.equals(startNode)){
             current=current.getParent();
-            System.out.println(current.toString());
+            //System.out.println(current.toString());
             path.add(current);
         }
         return path;
