@@ -51,13 +51,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-            DataContainer.messages.add(remoteMessage.getData().get("hospitalMessage"));
-            SharedPreferences sharedPreferences = getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE);
-            sharedPreferences.edit().putString("messages", new Gson().toJson(DataContainer.messages)).commit();
+
+            //SharedPreferences sharedPreferences = getSharedPreferences("mySharedPreferences", Context.MODE_PRIVATE);
+            //sharedPreferences.edit().putString("messages", new Gson().toJson(DataContainer.messages)).commit();
+
             LocalBroadcastManager broadcaster = LocalBroadcastManager.getInstance(getBaseContext());
-            Intent intent = new Intent("hospitalMessage");
-            intent.putExtra("message", remoteMessage.getData().get("hospitalMessage"));
-            broadcaster.sendBroadcast(intent);
+            MessageContainer.getMessage(DataContainer.hospitalName,DataContainer.id,broadcaster);
+//            LocalBroadcastManager broadcaster = LocalBroadcastManager.getInstance(getBaseContext());
+//            Intent intent = new Intent("hospitalMessage");
+            //intent.putExtra("message", remoteMessage.getData().get("hospitalMessage"));
+//            broadcaster.sendBroadcast(intent);
         }
 
         // Check if message contains a notification payload.

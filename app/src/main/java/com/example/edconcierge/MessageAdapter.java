@@ -16,9 +16,9 @@ import androidx.annotation.Nullable;
 import java.util.Collections;
 import java.util.List;
 
-public class MessageAdapter<String> extends ArrayAdapter {
-    List<String> messageList;
-    public MessageAdapter(Context context, int ResourceID, List<String> messageList){
+public class MessageAdapter extends ArrayAdapter {
+    List<Message> messageList;
+    public MessageAdapter(Context context, int ResourceID, List<Message> messageList){
         super(context,ResourceID,messageList);
         //反转list
         //Collections.reverse(messageList);
@@ -35,11 +35,14 @@ public class MessageAdapter<String> extends ArrayAdapter {
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.message_item, parent, false);
         }
-        String message=messageList.get(messageList.size()-position-1);
+        Message message=messageList.get(messageList.size()-position-1);
+        String content=message.getContent();
+        String time=message.time;
         Log.d("MessageAdapter", java.lang.String.valueOf(position));
-        System.out.println(parent);
         TextView textView=convertView.findViewById(R.id.Message_Text);
-        textView.setText((CharSequence) message);//需要cast to charsequence
+        textView.setText(content);
+        TextView textView1=convertView.findViewById(R.id.Message_Time);
+        textView1.setText(time);
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

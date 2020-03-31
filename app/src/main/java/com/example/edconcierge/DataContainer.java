@@ -54,7 +54,7 @@ public class DataContainer {
         DataContainer.hospitalName = sharedPreferences.getString("hospitalName", "");;
         DataContainer.name = sharedPreferences.getString("name", "guest");
         DataContainer.id = sharedPreferences.getString("id", "00000000");
-        DataContainer.messages = (new Gson()).fromJson(sharedPreferences.getString("messages", ""), ArrayList.class);
+        //DataContainer.messages = (new Gson()).fromJson(sharedPreferences.getString("messages", ""), ArrayList.class);
 
         DataBaseHelper dbHelper = new DataBaseHelper(context, "EDConcierge.db", null, 1);
         SQLiteDatabase db = dbHelper.getWritableDatabase();

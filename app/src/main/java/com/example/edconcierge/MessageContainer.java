@@ -1,12 +1,18 @@
 package com.example.edconcierge;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
+
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +26,7 @@ public class MessageContainer {
 
     public static List<Message> list = new ArrayList<>();
 
-    public static void getMessage(String hospitalName, String id) {
+    public static void getMessage(String hospitalName, String id, final LocalBroadcastManager broadcaster) {
         // if guest return
         if (id.equals("00000000")) return;
 
@@ -36,8 +42,13 @@ public class MessageContainer {
                     Message msg = new Message(message.get("content"), message.get("time"), message.get("receiver").equals("user"), message.get("type").equals(("text")));
                     list.add(msg);
                 }
-                for (Message message : list)
+                for (Message message : list){
                     Log.d(TAG, "onDataChange: " + message);
+                    DataContainer.messages.add(message.content);
+                    System.out.println("Here2");
+                }
+                Intent intent = new Intent("hospitalMessage");
+                broadcaster.sendBroadcast(intent);
                 // TODO: notify view to refresh
             }
 
@@ -66,29 +77,5 @@ public class MessageContainer {
                 replaceAll("\\.", "").toUpperCase());
         message.put("type", isText ? "text" : "picture");
         myRef.child("message").child(String.valueOf(numMessage)).setValue(message);
-    }
-}
-
-class Message {
-    public String content;
-    public String time;
-    public boolean toUser;
-    public boolean isText;
-
-    public Message(String content, String time, boolean toUser, boolean isText) {
-        this.content = content;
-        this.time = time;
-        this.toUser = toUser;
-        this.isText = isText;
-    }
-
-    @Override
-    public String toString() {
-        return "Message{" +
-                "content='" + content + '\'' +
-                ", time='" + time + '\'' +
-                ", toUser=" + toUser +
-                ", isText=" + isText +
-                '}';
     }
 }

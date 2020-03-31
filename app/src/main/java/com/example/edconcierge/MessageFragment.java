@@ -30,7 +30,7 @@ import java.util.List;
 public class MessageFragment extends Fragment {
 
     private View root;
-    private MessageAdapter<String> mAdapter;
+    private MessageAdapter mAdapter;
     Switch aSwitch;
 
     @Override
@@ -61,7 +61,7 @@ public class MessageFragment extends Fragment {
     }
 
     private void setListView() {
-        mAdapter = new MessageAdapter<String>(getContext(), R.layout.message_item, DataContainer.messages);
+        mAdapter = new MessageAdapter(getContext(), R.layout.message_item, MessageContainer.list);
         ListView listView = (ListView) root.findViewById(R.id.messages_listView);
         listView.setAdapter(mAdapter);
     }
@@ -69,9 +69,11 @@ public class MessageFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        LocalBroadcastManager.getInstance(getActivity()).registerReceiver((receiver),
+        LocalBroadcastManager broadcaster = LocalBroadcastManager.getInstance(getActivity());
+        broadcaster.registerReceiver((receiver),
                 new IntentFilter("hospitalMessage")
         );
+        MessageContainer.getMessage(DataContainer.hospitalName,DataContainer.id,broadcaster);
 
     }
 
@@ -79,7 +81,7 @@ public class MessageFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             mAdapter.notifyDataSetChanged();
-            Log.d("BroadcastReceiver", "onReceive: " + DataContainer.messages);
+            Log.d("BroadcastReceiver", "onReceive");
         }
     };
 

@@ -68,6 +68,7 @@ public class Splash extends AppCompatActivity {
         if (sharedPreferences.getString("hospitalName", "").length() != 0) {
             DataContainer.getData(sharedPreferences, this);
         }
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
