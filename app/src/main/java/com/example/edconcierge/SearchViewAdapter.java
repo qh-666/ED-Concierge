@@ -1,5 +1,6 @@
 package com.example.edconcierge;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -25,7 +26,7 @@ import java.util.List;
 public class SearchViewAdapter extends RecyclerView.Adapter<SearchViewAdapter.MyViewHolder> implements Filterable{
     LayoutInflater layoutInflater;
     List<String> QuestionTitle;
-    List<String> QuestionTitleUnChanged;
+    final List<String> QuestionTitleUnChanged;
     Context context;
     public SearchViewAdapter(Context context,List<String> L){
         this.context=context;
@@ -35,25 +36,25 @@ public class SearchViewAdapter extends RecyclerView.Adapter<SearchViewAdapter.My
     }
     class MyViewHolder extends RecyclerView.ViewHolder{
         TextView textView;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.Message_Text);
+            textView = itemView.findViewById(R.id.search_Text);
         }
     }
 
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view=layoutInflater.inflate(R.layout.message_item,parent,false);
+        View view=layoutInflater.inflate(R.layout.search_item,parent,false);
         MyViewHolder myViewHolder=new MyViewHolder(view);
         return myViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         holder.textView.setText(QuestionTitle.get(position));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, InformationActivity.class);

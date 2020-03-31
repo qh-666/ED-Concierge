@@ -91,6 +91,7 @@
 
     </com.google.android.material.appbar.CollapsingToolbarLayout>
 
+
     <TextView
         android:id="@+id/question_activity_information"
         android:layout_width="0dp"
@@ -102,7 +103,7 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Info_Toobar" />
+        app:layout_constraintTop_toBottomOf="@id/Info_Toobar"/>
 
 
     <ScrollView
@@ -118,7 +119,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/question_activity_information">
 
-        <TextView
+        <me.biubiubiu.justifytext.library.JustifyTextView
             android:id="@+id/answer_activity_information"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -126,6 +127,7 @@
 
             android:textColor="#000000"
             android:textSize="20sp" />
+
     </ScrollView>
 
 

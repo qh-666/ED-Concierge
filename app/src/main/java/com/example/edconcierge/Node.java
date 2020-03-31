@@ -24,11 +24,13 @@ public class Node {
 
     public int calculateH(Node endNode){
         //Manhattan distance
-        int h = abs(endNode.getRow() - getRow()) + abs(endNode.getColumn() - getColumn());
+        //int h = abs(endNode.getRow() - getRow()) + abs(endNode.getColumn() - getColumn());
+        int h= abs(endNode.getRow() - getRow())*abs(endNode.getRow() - getRow())+abs(endNode.getColumn() - getColumn())*abs(endNode.getColumn() - getColumn());
         return h;
     }
     public int calculateG(Node startNode){
-        int g = abs(startNode.getRow() - getRow()) + abs(startNode.getColumn() - getColumn());
+        //int g = abs(startNode.getRow() - getRow()) + abs(startNode.getColumn() - getColumn());
+        int g= abs(startNode.getRow() - getRow())*abs(startNode.getRow() - getRow())+abs(startNode.getColumn() - getColumn())*abs(startNode.getColumn() - getColumn());
         return g;
     }
 
