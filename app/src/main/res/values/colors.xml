@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorEDTheme">#0069FF</color>
     <color name="gray">#DCDCDC</color>
+    <color name="textGray">#696969</color>
 </resources>

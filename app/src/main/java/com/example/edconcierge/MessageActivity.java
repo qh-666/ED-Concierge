@@ -3,6 +3,7 @@ package com.example.edconcierge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
@@ -30,7 +31,7 @@ public class MessageActivity extends AppCompatActivity {
     int messageindex;
     ImageButton back;
     Button fontsize;
-    TextView textView;
+    TextView textView,textView1,textView2;
     private TextToSpeech mTextToSpeech;
     float TextSize;
     @Override
@@ -38,7 +39,7 @@ public class MessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_message);
         Log.d("MessageActivity", "Create");
-        //装场效果
+        //转场效果
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         Slidr.attach(this);
 
@@ -47,8 +48,17 @@ public class MessageActivity extends AppCompatActivity {
         messageindex = getIntent().getIntExtra("index", 0);
         textView.setText("abc");
         System.out.println("123");
-        textView.setText(DataContainer.messages.get(messageindex));
+        textView.setText(MessageContainer.list.get(messageindex).getContent());
         TextSize=textView.getTextSize();
+
+        textView1=findViewById(R.id.answer_activity_msg_time);
+        textView1.setText(MessageContainer.list.get(messageindex).getTime());
+
+        textView2=findViewById(R.id.question_activity_Message);
+        String text="From "+DataContainer.hospitalName+":";
+        textView2.setText(text);
+        //Message_SendMessageView sendMessageView=new Message_SendMessageView(getBaseContext(), view);
+
 
         back = findViewById(R.id.Message_back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +137,8 @@ public class MessageActivity extends AppCompatActivity {
         mTextToSpeech.speak(DataContainer.messages.get(messageindex), TextToSpeech.QUEUE_ADD, null);
     }
 
+
+
     int count=0;
     boolean asending=true;
     public void increaseFontSize(View view) {
@@ -138,9 +150,11 @@ public class MessageActivity extends AppCompatActivity {
         }
         if(asending){
             textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,  textView.getTextSize() + 20);
+            textView1.setTextSize(TypedValue.COMPLEX_UNIT_PX,  textView1.getTextSize() + 20);
             count++;
         }else{
             textView.setTextSize(TypedValue.COMPLEX_UNIT_PX,  textView.getTextSize() - 20);
+            textView1.setTextSize(TypedValue.COMPLEX_UNIT_PX,  textView1.getTextSize() - 20);
             count--;
         }
     }

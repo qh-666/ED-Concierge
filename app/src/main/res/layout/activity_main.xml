@@ -28,6 +28,7 @@
             android:gravity="center"
             android:textColor="@android:color/white"
             android:textSize="24sp"
+            android:fontFamily="@font/lato_regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

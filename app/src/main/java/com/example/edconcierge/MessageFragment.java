@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.strictmode.WebViewMethodCalledOnWrongThreadViolation;
 import android.util.Log;
@@ -32,6 +34,7 @@ public class MessageFragment extends Fragment {
     private View root;
     private MessageAdapter mAdapter;
     Switch aSwitch;
+    ListView listView;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class MessageFragment extends Fragment {
                     DataContainer.messages=new ArrayList<String>();
                     mAdapter.messageList.clear();
                     Log.d("Message", String.valueOf(DataContainer.messages.size()));
+                    MessageContainer.deleteMessage(DataContainer.hospitalName, DataContainer.id);
                     mAdapter.notifyDataSetChanged();
                 }
             }
@@ -62,7 +66,7 @@ public class MessageFragment extends Fragment {
 
     private void setListView() {
         mAdapter = new MessageAdapter(getContext(), R.layout.message_item, MessageContainer.list);
-        ListView listView = (ListView) root.findViewById(R.id.messages_listView);
+        listView = root.findViewById(R.id.messages_listView);
         listView.setAdapter(mAdapter);
     }
 
@@ -91,5 +95,6 @@ public class MessageFragment extends Fragment {
         LocalBroadcastManager.getInstance(getContext()).unregisterReceiver(receiver);
         super.onDestroy();
     }
+
 
 }

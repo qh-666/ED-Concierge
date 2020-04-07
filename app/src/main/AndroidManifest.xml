@@ -9,10 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity
+            android:name=".ScrollView"
+            android:label="@string/title_activity_scroll_view"
+            android:theme="@style/NoActionBar" />
+
         <service
             android:name=".NaviagationService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
 
         <activity
             android:name=".MessageActivity"
@@ -25,15 +30,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".NavigationActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
+
         <activity
             android:name=".InformationActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.SlidrActivityTheme" />
-        <activity android:name=".MainActivity" />
+
+        <activity android:name=".MainActivity" android:windowSoftInputMode="adjustPan"/>
+
         <activity android:name=".ChoosingHospitalActivity" />
 
         <service

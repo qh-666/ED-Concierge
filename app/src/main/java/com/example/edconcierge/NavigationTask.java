@@ -1,7 +1,9 @@
 package com.example.edconcierge;
 
+import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -16,13 +18,14 @@ import java.util.Deque;
 //Result: 这个泛型指定的异步任务执行完后返回给UI线程的结果的类型。我们在定义一个类继承AsyncTask类的时候，必须要指定好这三个泛型的类型，如果都不指定的话，则都将其写成Void
 
 public class NavigationTask extends AsyncTask<TaskParameters, Node,String>{
-    int[][] MapMatrix;
+    private int[][] MapMatrix;
     ImageView map;
     int[] current,destination;
     Deque<Node> path;
     Bitmap temp;
     Paint paint;
     Canvas canvas;
+    @SuppressLint("ResourceAsColor")
     @Override
     protected String doInBackground(TaskParameters... taskParameters) {
         Log.d("NavigationTask","doInbackground");
@@ -43,11 +46,12 @@ public class NavigationTask extends AsyncTask<TaskParameters, Node,String>{
             e.printStackTrace();
         }
         //画图
-        paint = new Paint();
-        paint.setColor(-65536);
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG); // 画笔抗锯齿
+        int color = Color.parseColor("#008B00");
+        paint.setColor(color);
         canvas = new Canvas(temp);
         //起始
-        canvas.drawCircle(current[0], current[1], 2, paint);
+        canvas.drawCircle(current[0], current[1], 2.1f, paint);
         //路径
         while(!path.isEmpty()){
             try {
@@ -59,7 +63,7 @@ public class NavigationTask extends AsyncTask<TaskParameters, Node,String>{
             publishProgress(curretloc);
         }
         //终点
-        canvas.drawCircle(destination[0], destination[1], 2, paint);
+        canvas.drawCircle(destination[0], destination[1], 2.1f, paint);
         return null;
     }
 
@@ -69,7 +73,7 @@ public class NavigationTask extends AsyncTask<TaskParameters, Node,String>{
         //画图
         //bitmap should be mutable 才可以set
         //location画圆
-        canvas.drawCircle(nodes[0].getRow(),nodes[0].getColumn(),1,paint);
+        canvas.drawCircle(nodes[0].getRow(),nodes[0].getColumn(),1.3f,paint);
         map.setImageBitmap(temp);
         //super.onProgressUpdate(values);
     }

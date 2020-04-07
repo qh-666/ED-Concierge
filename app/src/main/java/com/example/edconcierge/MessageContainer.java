@@ -1,12 +1,16 @@
 package com.example.edconcierge;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,14 +42,15 @@ public class MessageContainer {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 list.clear();
                 ArrayList<HashMap<String, String>> messages = (ArrayList<HashMap<String, String>>) dataSnapshot.getValue();
-                for (HashMap<String, String> message : messages) {
-                    Message msg = new Message(message.get("content"), message.get("time"), message.get("receiver").equals("user"), message.get("type").equals(("text")));
-                    list.add(msg);
+                if (messages != null) {
+                    for (HashMap<String, String> message : messages) {
+                        Message msg = new Message(message.get("content"), message.get("time"), message.get("receiver").equals("user"), message.get("type").equals(("text")));
+                        list.add(msg);
+                    }
                 }
                 for (Message message : list){
-                    Log.d(TAG, "onDataChange: " + message);
+                    //Log.d(TAG, "onDataChange: " + message);
                     DataContainer.messages.add(message.content);
-                    System.out.println("Here2");
                 }
                 Intent intent = new Intent("hospitalMessage");
                 broadcaster.sendBroadcast(intent);
@@ -60,6 +65,7 @@ public class MessageContainer {
         });
     }
 
+    @SuppressLint("SimpleDateFormat")
     public static void sendMessage(String hospitalName, String id, String content, boolean isText) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("hospital").child(hospitalName).child("user").child(id);
@@ -76,6 +82,18 @@ public class MessageContainer {
                 replaceAll(" 0", "").
                 replaceAll("\\.", "").toUpperCase());
         message.put("type", isText ? "text" : "picture");
-        myRef.child("message").child(String.valueOf(numMessage)).setValue(message);
+        myRef.child("message").child(String.valueOf(numMessage)).setValue(message)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+
+                    }
+                });
+    }
+    public static void deleteMessage(String hospitalName, String id) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("hospital").child(hospitalName).child("user").child(id);
+        myRef.child("message").removeValue();
+        myRef.child("numMessage").setValue(0);
     }
 }

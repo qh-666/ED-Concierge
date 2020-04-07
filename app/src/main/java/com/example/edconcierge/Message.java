@@ -25,4 +25,8 @@ public class Message {
     public String getContent() {
         return content;
     }
+
+    public String getTime(){
+        return time;
+    }
 }
