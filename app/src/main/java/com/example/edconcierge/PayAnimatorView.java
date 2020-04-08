@@ -187,7 +187,10 @@ public class PayAnimatorView extends View {
         if (curStatus == STATUS_LOADING && status != STATUS_LOADING) {
             curStatus = status;
             mLoadingAnimator.end();
+        }else{
+            init();
         }
+
     }
 
     private int mSuccessIndex = 1;

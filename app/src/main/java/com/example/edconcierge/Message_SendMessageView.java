@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import static com.example.edconcierge.PayAnimatorView.STATUS_FAIL;
+import static com.example.edconcierge.PayAnimatorView.STATUS_LOADING;
 import static com.example.edconcierge.PayAnimatorView.STATUS_SUCCESS;
 
 //自定义的view是一个类，别的view include自己创建的view之后，需要constructor
@@ -34,6 +36,10 @@ public class Message_SendMessageView {
         myProgressBar=v.findViewById(R.id.myProgressBar);
         reply_view=v.findViewById(R.id.reply_layout);
         cancel=v.findViewById(R.id.sendMessage_cancelView);
+
+        editText.setVisibility(View.VISIBLE);
+        button.setVisibility(View.VISIBLE);
+        textView2.setVisibility(View.VISIBLE);
         reply_view.setVisibility(View.VISIBLE);
         myProgressBar.setVisibility(View.INVISIBLE);
 
@@ -60,6 +66,7 @@ public class Message_SendMessageView {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
+                        //myProgressBar.setVisibility(View.INVISIBLE);
                         reply_view.setVisibility(View.GONE);
                         MessageContainer.sendMessage(DataContainer.hospitalName,DataContainer.id,input,true);
                     }
@@ -76,9 +83,11 @@ public class Message_SendMessageView {
         if(imm != null) {
             imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
         }
+        myProgressBar.setStatus(STATUS_LOADING);
         myProgressBar.setVisibility(View.VISIBLE);
     }
     public void hasSent(){
+        System.out.println("onsuccess");
         myProgressBar.setStatus(STATUS_SUCCESS);
     }
 }

@@ -50,7 +50,7 @@ public class NavigationActivity extends AppCompatActivity {
             mbinder= (NaviagationService.pathfindBinder) service;
             mbinder.imagetoArray(map);
             Log.d("NavigationService","onServiceConnected");
-            if(current==null) {mbinder.findpath(map,locationMap.get(9),locationMap.get(mIndexQuestion));}
+            //if(current==null) {mbinder.findpath(map,locationMap.get(9),locationMap.get(mIndexQuestion));}
         }
 
         @Override

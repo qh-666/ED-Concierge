@@ -96,7 +96,6 @@ public class MessageAdapter extends ArrayAdapter {
                     //LayoutInflater myLayout = LayoutInflater.from(getContext());
                     //View dialogView = myLayout.inflate(R.layout.reply_layout, null);
                     //初始化view
-                    System.out.println("onlongclick");
                     Message_SendMessageView sendMessageView=new Message_SendMessageView(getContext(), finalConvertView);
                 }
                 return;
