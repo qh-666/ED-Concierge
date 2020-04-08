@@ -10,6 +10,7 @@ public class TaskParameters {
     int[] destination;
     ImageView map;
     Bitmap temp;
+    private static Bitmap store_map;
     public TaskParameters(int[][] a,int[]b,int[]c,ImageView d,Bitmap e){
         MapMatrix=a;
         current=b;
@@ -20,5 +21,14 @@ public class TaskParameters {
 
     public int[][] getMapMatrix() {
         return MapMatrix;
+    }
+
+    public static Bitmap getStore_map() {
+        return store_map;
+    }
+
+    public static void setStore_map(Bitmap store_map) {
+        System.out.println("Set");
+        TaskParameters.store_map = store_map;
     }
 }

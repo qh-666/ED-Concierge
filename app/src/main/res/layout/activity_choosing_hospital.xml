@@ -15,8 +15,9 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/patient_id_editText" />
+        app:layout_constraintTop_toBottomOf="@+id/patient_vericode" />
 
     <Button
         android:id="@+id/button"
@@ -27,6 +28,7 @@
         android:background="#00FFFFFF"
         android:onClick="nextHandler"
         android:text="@string/continue_"
+        android:fontFamily="@font/lato_regular"
         android:textColor="#FF00A6FF"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,6 +78,7 @@
         android:text="Guest Mode     "
         android:textColor="@android:color/darker_gray"
         android:textSize="15sp"
+        android:fontFamily="@font/lato_regular"
         android:thumbTint="#FF00A6FF"
         android:trackTint="#FF00A6FF"
         app:layout_constraintBottom_toTopOf="@+id/button"
@@ -88,9 +91,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="#FF00A6FF"
+        android:fontFamily="@font/lato_regular"
         android:ems="10"
         android:hint="Patient Name"
         android:inputType="textPersonName"
@@ -106,6 +110,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:backgroundTint="#FF00A6FF"
+        android:fontFamily="@font/lato_regular"
         android:ems="10"
         android:hint="Patient ID"
         android:inputType="textPersonName"
@@ -113,5 +118,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/patient_name_editText" />
+
+    <EditText
+        android:id="@+id/patient_vericode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="#FF00A6FF"
+        android:fontFamily="@font/lato_regular"
+        android:ems="10"
+        android:hint="Login Code"
+        android:inputType="textPersonName"
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/patient_id_editText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

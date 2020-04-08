@@ -34,7 +34,13 @@ public class NavigationTask extends AsyncTask<TaskParameters, Node,String>{
         map=taskParameters[0].map;
         current=taskParameters[0].current;
         destination=taskParameters[0].destination;
-        temp=taskParameters[0].temp;
+        temp=TaskParameters.getStore_map();
+        //需要bitmap置为0，不知道原因。
+        for(int i=0;i<temp.getWidth();i++){
+            for(int j=0;j<temp.getHeight();j++){
+                temp.setPixel(i,j,0);
+            }
+        }
         AStar aStar=new AStar(MapMatrix,current,destination);
         Boolean result=aStar.search();
         System.out.println(result);
@@ -49,7 +55,10 @@ public class NavigationTask extends AsyncTask<TaskParameters, Node,String>{
         paint = new Paint(Paint.ANTI_ALIAS_FLAG); // 画笔抗锯齿
         int color = Color.parseColor("#008B00");
         paint.setColor(color);
-        canvas = new Canvas(temp);
+        if(canvas==null){
+            Log.d("canvas","newCanavs");
+            canvas = new Canvas(temp);
+        }
         //起始
         canvas.drawCircle(current[0], current[1], 2.1f, paint);
         //路径
@@ -82,6 +91,14 @@ public class NavigationTask extends AsyncTask<TaskParameters, Node,String>{
     protected void onPostExecute(String s) {
         Log.d("NavigationTask","PostExecute");
         map.setImageBitmap(temp);
+        //You cannot recycle the Bitmap while using it on in the UI, the Bitmap has to be kept in memory.
+        // Android will in most cases handle recycling just fine,
+        // but if you need to recycle yourself you need to make sure to not use the Bitmap instance afterwards
+        // (as in this case where the Bitmap instance will be rendered later on).
+        //imageview持有bitmap引用 所以可能会出问题
+//        if (!temp.isRecycled()) {
+//            temp.recycle();
+//        }
         super.onPostExecute(s);
     }
 

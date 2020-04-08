@@ -109,6 +109,7 @@ public class ChoosingHospitalActivity extends AppCompatActivity implements Adapt
         Switch switch_ = (Switch) findViewById(R.id.switch1);
         final EditText nameEditText = (EditText) findViewById(R.id.patient_name_editText);
         final EditText idEditText = (EditText) findViewById(R.id.patient_id_editText);
+        final EditText vericodeEditText = (EditText) findViewById(R.id.patient_vericode);
 
 
         switch_.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -117,9 +118,11 @@ public class ChoosingHospitalActivity extends AppCompatActivity implements Adapt
                 if (mGuestMode) {
                     nameEditText.setVisibility(View.GONE);
                     idEditText.setVisibility(View.GONE);
+                    vericodeEditText.setVisibility(View.GONE);
                 } else {
                     nameEditText.setVisibility(View.VISIBLE);
                     idEditText.setVisibility(View.VISIBLE);
+                    vericodeEditText.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -133,6 +136,7 @@ public class ChoosingHospitalActivity extends AppCompatActivity implements Adapt
         } else {
             final String name = ((EditText) findViewById(R.id.patient_name_editText)).getText().toString();
             final String id = ((EditText) findViewById(R.id.patient_id_editText)).getText().toString();
+            final String vericode = ((EditText) findViewById(R.id.patient_vericode)).getText().toString();
 
             if (id.length() == 0 || !id.matches("[0-9]+")) {
                 Toast.makeText(this, "Wrong ID format", Toast.LENGTH_SHORT).show();
@@ -151,7 +155,7 @@ public class ChoosingHospitalActivity extends AppCompatActivity implements Adapt
                                 }
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     Log.d("TAG", document.getId() + " => " + document.getData());
-                                    if (document.get("name").equals(name) && document.get("hospital").equals(mHospitalName)) {
+                                    if (document.get("name").equals(name) && document.get("hospital").equals(mHospitalName) && document.get("vericode").equals(vericode)) {
                                         Log.d("TAG", "onComplete: 09");
 
                                         // Success

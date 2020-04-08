@@ -49,7 +49,7 @@ public class NaviagationService extends Service {
     @Override
     public void onDestroy() {
         Log.d("NavigationService","Destroy");
-        navigationTask.cancel(true);
+        if(navigationTask!=null) navigationTask.cancel(true);
         super.onDestroy();
     }
 
@@ -64,6 +64,7 @@ public class NaviagationService extends Service {
             super();
         }
         public void imagetoArray(ImageView map){
+            //System.out.println("imagetoArray");
             //把图片转换成bitmap,转换成int[],同时把图片变为transparent
             bitmap = ((BitmapDrawable) map.getDrawable()).getBitmap();
             temp=bitmap.copy(RGBA_F16,true);
@@ -82,6 +83,7 @@ public class NaviagationService extends Service {
                 }
             }
             map.setImageBitmap(temp);
+            TaskParameters.setStore_map(temp);
             //System.out.println(MapMatrix.length);
             //System.out.println(MapMatrix[0].length);
         }
@@ -89,7 +91,7 @@ public class NaviagationService extends Service {
         public void findpath(ImageView map,int[] current,int[] destination){
             //设置之后可以异步显示路径
             navigationTask=new NavigationTask();
-            taskParameters=new TaskParameters(MapMatrix,current,destination,map,temp);
+            taskParameters=new TaskParameters(MapMatrix,current,destination,map,TaskParameters.getStore_map());
             navigationTask.execute(taskParameters);
         }
     }

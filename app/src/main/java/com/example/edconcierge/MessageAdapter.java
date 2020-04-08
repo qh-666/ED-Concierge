@@ -23,6 +23,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
 
+import static java.util.Collections.unmodifiableList;
+
 public class MessageAdapter extends ArrayAdapter {
     List<Message> messageList;
     public MessageAdapter(Context context, int ResourceID, List<Message> messageList){
@@ -75,20 +77,20 @@ public class MessageAdapter extends ArrayAdapter {
         //TextView textView1=convertView.findViewById(R.id.Message_Time);
         //textView.setText(content);
         //textView1.setText(time);
-        if(message.toUser){
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent=new Intent(getContext(),MessageActivity.class);
-                    intent.putExtra("index",messageList.size()-position-1);
-                    getContext().startActivity(intent);
-                }
-            });
-        }
+//        if(message.toUser){
+//            convertView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent=new Intent(getContext(),MessageActivity.class);
+//                    intent.putExtra("index",messageList.size()-position-1);
+//                    getContext().startActivity(intent);
+//                }
+//            });
+//        }
         final View finalConvertView = convertView;
-        convertView.setOnLongClickListener(new View.OnLongClickListener() {
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onLongClick(View v) {
+            public void onClick(View v) {
                 if(message.toUser){
                     //AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(v.getContext());
                     //LayoutInflater myLayout = LayoutInflater.from(getContext());
@@ -96,8 +98,8 @@ public class MessageAdapter extends ArrayAdapter {
                     //初始化view
                     System.out.println("onlongclick");
                     Message_SendMessageView sendMessageView=new Message_SendMessageView(getContext(), finalConvertView);
-                    return true;
-                }else return true;
+                }
+                return;
             }
         });
         return convertView;

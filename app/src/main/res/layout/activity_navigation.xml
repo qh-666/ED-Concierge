@@ -65,15 +65,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <Spinner
+            android:id="@+id/naviagtion_currentlocationSpinner"
+            style="@style/mySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toTopOf="@+id/mapTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/question_activity_navigation" />
+
+
         <ImageView
             android:id="@+id/mapTop"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:src="@drawable/map4"
+            android:src="@drawable/map5"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question_activity_navigation" />
+            app:layout_constraintTop_toBottomOf="@+id/naviagtion_currentlocationSpinner" />
         <ImageView
             android:id="@+id/map"
             android:layout_width="match_parent"
@@ -82,7 +94,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/question_activity_navigation" />
+            app:layout_constraintTop_toBottomOf="@+id/naviagtion_currentlocationSpinner" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

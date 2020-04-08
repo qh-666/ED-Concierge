@@ -25,7 +25,7 @@ public class Node {
     public int calculateH(Node endNode){
         //Manhattan distance
         //int h = abs(endNode.getRow() - getRow()) + abs(endNode.getColumn() - getColumn());
-        int h= abs(endNode.getRow() - getRow())*abs(endNode.getRow() - getRow())+abs(endNode.getColumn() - getColumn())*abs(endNode.getColumn() - getColumn());
+        int h= abs(endNode.getRow() - getRow())*abs(endNode.getRow() - getRow())+abs(endNode.getColumn() - getColumn())*(abs(endNode.getColumn() - getColumn())>>1);
         return h;
     }
     public int calculateG(Node startNode){

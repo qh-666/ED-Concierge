@@ -20,6 +20,7 @@ import com.google.gson.Gson;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -48,6 +49,7 @@ public class MessageContainer {
                         list.add(msg);
                     }
                 }
+                Collections.reverse(list);
                 for (Message message : list){
                     //Log.d(TAG, "onDataChange: " + message);
                     DataContainer.messages.add(message.content);
