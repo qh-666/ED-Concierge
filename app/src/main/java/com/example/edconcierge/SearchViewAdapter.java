@@ -57,9 +57,15 @@ public class SearchViewAdapter extends RecyclerView.Adapter<SearchViewAdapter.My
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, InformationActivity.class);
-                intent.putExtra("indexQuestion", position);
-                context.startActivity(intent);
+                if(QuestionTitleUnChanged.size()<9){
+                    Intent intent = new Intent(context, InformationActivity.class);
+                    intent.putExtra("indexQuestion", position);
+                    context.startActivity(intent);
+                }else{
+                    Intent intent = new Intent(context, NavigationActivity.class);
+                    intent.putExtra("indexQuestion", position);
+                    context.startActivity(intent);
+                }
             }
         });
         //System.out.println(QuestionTitle.get(position));
