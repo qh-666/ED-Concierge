@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "942381853391",
+    "firebase_url": "https://ed-concierge.firebaseio.com",
+    "project_id": "ed-concierge",
+    "storage_bucket": "ed-concierge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:942381853391:android:7e4494f23cd81c234425ba",
+        "android_client_info": {
+          "package_name": "com.example.edconcierge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "942381853391-ig4oju7spj2ea33e7l6trpor790qn2gk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.edconcierge",
+            "certificate_hash": "7bbe7f90c7dcae255854ce366b6bfbeca395568f"
+          }
+        },
+        {
+          "client_id": "942381853391-u8strlvnvvsdkm2qqi0tjlllavlg6oj1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXNhGgoPtpdmvIThm2CpUkYhUDVZyewDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "942381853391-u8strlvnvvsdkm2qqi0tjlllavlg6oj1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
