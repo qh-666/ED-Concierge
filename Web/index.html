@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+</head>
+<body>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-messaging.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyAKc1PdeUTy7rbFZ8xpLNXX-F0qLnFuxL8",
+            authDomain: "test-message-2207e.firebaseapp.com",
+            databaseURL: "https://test-message-2207e.firebaseio.com",
+            projectId: "test-message-2207e",
+            storageBucket: "test-message-2207e.appspot.com",
+            messagingSenderId: "921591458880",
+            appId: "1:921591458880:web:ffa6f259e8f5eab98e43a5",
+            measurementId: "G-FZJTR6FGSB"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+    <script>
+        const messaging = firebase.messaging();
+        messaging.usePublicVapidKey("BD6_XZB2AS3BZn28q2glaFNZQDTyRKB8Sn_N1COF0VhNGh7nnJHw2KoLy0KSxKn1meK0qf1o2yGNxT1ymVkH2U8");
+
+        
+
+    </script>
+</body>
+</html>

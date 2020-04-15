@@ -1,0 +1,202 @@
+<html>
+    <head>
+        <title>ED Concierge</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container">
+            <div id="users">
+                <div id="hospitalHeader">
+                    <p>{{ hospital }}</p>
+                    <button id="new_user_button">New Patient</button>
+                    <a id="exit_button" href="/">Exit</a>
+                </div>
+                <div id="userlist">
+                    <!-- {% for user in users %}
+                    <a href="/hospital/{{hospital}}/patient/{{user.id}}">
+                        <div class="user {{ user.id }}">
+                            <span>{{ user.username }}</span>
+                            <span>Patient #: {{ user.id }}</span>
+                        </div>
+                    </a>
+                    {% endfor %} -->
+                </div>
+            </div>
+            <div id="contents">
+                {% if selected_user != None %}
+                <div style="overflow: scroll; flex-grow: 1;" >
+                    <div class="messages">
+                        <!-- {% for post in selected_user.posts.all() %} -->
+                        <!-- <div class="message"> -->
+                            <!-- <p>{{ post.notification_content }}</p> -->
+                            <!-- <p style="float: right;">{{ post.timestamp }}</p> -->
+                        <!-- </div> -->
+                        <!-- {% endfor %} -->
+                    </div>
+                </div>
+                <div class="editor">
+                    <form action="/hospital/{{hospital}}/patient/{{selected_user.id}}/create_notification" method="POST">
+                        <!-- <input type="text" id="notification_content" name="notification_content"> -->
+                        <textarea id="notification_content" name="notification_content"></textarea>
+                        <input type="submit" value="Send" id="submit_message">
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div id="backdrop"></div>
+        <div id="create_user_dialog">
+            <div id="create_user_dialog_header">
+                <span>Add New Patient</span>
+                <button type="button" id="create_user_cancel">Cancel</button>
+            </div>
+            <form action="/hospital/{{ hospital }}/create_user" method="POST">
+                <input type="text" id="username" name="username" placeholder="Patient Name"><br>
+                <input type="text" id="id_number" name="id_number" placeholder="Patient Number"><br>
+                <input type="text" id="phonenum" name="phonenum" placeholder="Phone Number"><br>
+                <input type="submit" value="Confirm" id="create_user_confirm">
+            </form>
+        </div>
+        <script>
+            document.getElementById('new_user_button').addEventListener("click", newUserButtonClickedHandler)
+            document.getElementById('create_user_cancel').addEventListener("click", newUserCanceledHander)
+            function newUserButtonClickedHandler() {
+                document.getElementById('backdrop').style.visibility = 'visible';
+                document.getElementById('create_user_dialog').style.visibility = 'visible';
+            }
+            function newUserCanceledHander() {
+                document.getElementById('backdrop').style.visibility = 'hidden';
+                document.getElementById('create_user_dialog').style.visibility = 'hidden';
+            }
+            document.getElementsByClassName('{{selected_user.id}}')[0].style.backgroundColor = '#80B3FF';
+            document.getElementsByClassName('{{selected_user.id}}')[0].style.color = 'white';
+            // document.getElementsByClassName('{{selected_user.id}}')[0].firstElementChild.nextElementSibling.nextElementSibling.style.visibility = 'hidden';
+        </script>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.1/firebase-database.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyDFfsIC2HE_2teo5C_Gftjc5ZhRdoSbvug",
+                authDomain: "ed-concierge.firebaseapp.com",
+                databaseURL: "https://ed-concierge.firebaseio.com",
+                projectId: "ed-concierge",
+                storageBucket: "ed-concierge.appspot.com",
+                messagingSenderId: "942381853391",
+                appId: "1:942381853391:web:06ad55dfe724248e4425ba",
+                measurementId: "G-3WGP2QZE9X"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+
+        <script>
+            function createUser(hospitalName, userId, username) {
+                firebase.database().ref('hospital/' + hospitalName + '/user/' + userId).set({
+                    id: userId,
+                    name: username,
+                    numMessage: 0
+                })
+            }
+            function listenUser(hospitalName) {
+                firebase.database().ref('hospital/' + hospitalName + '/user').on('value', 
+                    function(users) {
+                        users = users.val();
+                        document.getElementById('userlist').innerHTML = '';
+                        for (let userId in users) {
+                            user = users[userId]
+                            let a = document.createElement('a');
+                            a.href = `/hospital/${hospitalName}/patient/${user.id}`;
+                            let div = document.createElement('div');
+                            div.className = `user ${ user.id }`;
+                            let span_name = document.createElement('span');
+                            span_name.textContent = user.name;
+                            let span_id = document.createElement('span');
+                            span_id.textContent = user.id;
+                            div.appendChild(span_name);
+                            div.appendChild(span_id);
+                            a.appendChild(div);
+                            document.getElementById('userlist').appendChild(a);
+                        }
+                        console.log(document.getElementsByClassName('{{ selected_user.id }}')[0]);
+                        document.getElementsByClassName('{{ selected_user.id }}')[0].style.backgroundColor = '#80B3FF';
+                        document.getElementsByClassName('{{ selected_user.id }}')[0].style.color = 'white';
+                    }
+                );
+            }
+            function createMessage(hospitalName, userId, message) {
+                firebase.database().ref('hospital/' + hospitalName + '/user/' + userId + '/numMessage').once('value').then(
+                    function(numMessage) {
+                        numMessage = numMessage.val();
+                        firebase.database().ref('hospital/' + hospitalName + '/user/' + userId + '/message/' + numMessage).set({
+                            content: message,
+                            time: new Date().toLocaleString(),
+                            receiver: 'user',
+                            type: 'text'
+                        });
+                        firebase.database().ref('hospital/' + hospitalName + '/user/' + userId + '/numMessage').set(numMessage + 1);
+                    }
+                )
+            }
+            function listenMessage(hospitalName, userId) {
+                firebase.database().ref('hospital/' + hospitalName + '/user/' + userId + '/message').on('value', 
+                    function(messages) {
+                        messages = messages.val();
+                        console.log(messages);
+                        document.getElementsByClassName('messages')[0].innerHTML = '';
+                        for (messageId in messages) {
+                            message = messages[messageId];
+                            console.log('-----');
+                            console.log(message.content);
+                            console.log(message.time);
+                            console.log(message.receiver);
+                            let div = document.createElement('div');
+                            div.className = 'message';
+                            let pContent = document.createElement('p');
+                            pContent.textContent = message.content;
+                            let pTime = document.createElement('p');
+                            pTime.textContent = message.time;
+                            pTime.style.float = 'right';
+                            pTime.style.fontSize = '12px';
+                            div.appendChild(pContent);
+                            div.appendChild(pTime);
+                            if (message.receiver == 'hospital') {
+                                div.style.cssText = 'margin-right: 90px; color: black; background-color: white; border: 1px solid #0069FF';
+                            } else {
+                                div.style.cssText = 'margin-left: 90px; color: black; background-color: #80B3FF; border: 0px solid #0069FF';
+                            }
+                            document.getElementsByClassName('messages')[0].appendChild(div);
+                        }
+                    }
+                );
+            }
+        </script>
+
+        <script>
+            listenUser('{{ hospital }}');
+            document.getElementById('create_user_confirm').addEventListener('click', function() {
+                createUser('{{hospital}}', document.getElementById('id_number').value, document.getElementById('username').value);
+            });
+        </script>
+
+        {% if selected_user != None %}
+        <script>
+            listenMessage('{{ hospital }}', '{{ selected_user.id }}');
+        </script>
+        {% endif %}
+
+        <script>
+            document.getElementById('submit_message').addEventListener('click', function() {
+                createMessage('{{ hospital }}', '{{ selected_user.id }}', document.getElementById('notification_content').value)
+            });
+        </script>
+    </body>
+</html>

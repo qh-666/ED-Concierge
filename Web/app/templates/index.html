@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>ED Concierge</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}" />
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <img src="{{url_for('static', filename='image/logo.png')}}" />
+        <p>Select Hospital:</p>
+        <form method="POST">
+            <input type="radio" id="university_hospital" name="hospital" value="University Hospital">
+            <label for="university_hospital">University Hospital</label><br>
+            <input type="radio" id="sacred_heart_hospital" name="hospital" value="Sacred Heart Hospital">
+            <label for="sacred_heart_hospital">Sacred Heart Hospital</label><br>
+            <input type="radio" id="county_hospital" name="hospital" value="County Hospital">
+            <label for="county_hospital">County Hospital</label><br>
+            <input type="radio" id="childrens_hospital" name="hospital" value="Childrens Hospital">
+            <label for="childrens_hospital">Childrens Hospital</label><br><br>
+            <input type="submit" value="continue">
+        </form>
+    </body>
+</html>
