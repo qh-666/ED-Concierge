@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <!--background，pressed则onclickbackground-->
-    <item android:drawable="@drawable/question_onclick_background" android:state_pressed="true"/>
-    <item android:drawable="@drawable/question_background"/>
-</selector>
