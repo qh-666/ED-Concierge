@@ -43,9 +43,9 @@ def create_user(hospital):
     db.session.add(user)
     db.session.commit()
 
-    client = nexmo.Client(key='0e8be5d5', secret='fnWCIhas4L4tfxKD')
+    client = nexmo.Client(key='******', secret='******')
     client.send_message({
-        'from': '17806287395',
+        'from': '******',
         'to': str(phonenum),
         'text': 'Hi, ' + username + '. Welcome to ' + hospitalname +'.\nYour patient id: ' + id_number + '.\nYour login code for ED Concierge: ' + str(vericode) + '.'
     })
